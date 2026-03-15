@@ -26,8 +26,8 @@ PDF Documents  ->  Parser (Docling)  ->  Section Chunker  ->  JSONL Output
 ### 1. Clone the Repository
 
 ```bash
-git clone <repository_url>
-cd <repository_name>
+git clone [https://github.com/rajjanicodes/chunking-pipeline.git](https://github.com/rajjanicodes/chunking-pipeline.git)
+cd chunking-pipeline
 ```
 
 ### 2. Install Dependencies
