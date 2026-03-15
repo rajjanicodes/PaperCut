@@ -1,0 +1,14 @@
+[project]
+name = "pdf-chunker"
+version = "0.1.0"
+description = "PDF chunking pipeline for RAG"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "docling>=2.80.0",
+]
+
+[tool.pyright]
+venvPath = "."
+venv = ".venv"
+extraPaths = ["."]
