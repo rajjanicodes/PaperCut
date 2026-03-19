@@ -17,4 +17,4 @@ SKIP_SECTIONS = [
     "additional files", "supplementary",
     "abbreviations", "declarations", "funding",
     "availability of data",
-] # these are the commo section names I assumed to be not useful in the downstream task
+] # these are the common section names I assumed to be not useful in the downstream task
