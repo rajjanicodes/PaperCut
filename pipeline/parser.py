@@ -1,9 +1,12 @@
 """Parses PDFs into structured sections using Docling."""
 
+import io
+
 from dataclasses import dataclass
 from pathlib import Path
-
+import pandas as pd
 from docling.document_converter import DocumentConverter
+
 from config import SKIP_SECTIONS
 
 
@@ -26,7 +29,6 @@ class ParsedDocument:
 
 def parse_pdf(path: Path) -> ParsedDocument:
     """
-
     Convert a PDF file into a ParsedDocument with sections.
 
     Input: 
@@ -78,9 +80,11 @@ def parse_pdf(path: Path) -> ParsedDocument:
             current_pages.add(page_no)
 
         elif item.label == "table":
-            table_md = item.export_to_markdown(doc)
-            if table_md:
-                current_parts.append(f"\n{table_md}\n")
+            table_df = item.export_to_dataframe(doc) # df instead of markdown
+            if not table_df.empty:
+                table_df = table_df.map(lambda x: str(x).strip())
+                table_str = str(table_df.to_dict(orient='records')) # {Column Header: Row Value} format
+                current_parts.append(f"Table:\n{table_str}\n")
                 current_pages.add(page_no)
 
     # save the last section
