@@ -1,4 +1,4 @@
-# PDF Chunker
+# PaperCut
 
 A section-aware parsing and chunking pipeline built for research publications.
 
